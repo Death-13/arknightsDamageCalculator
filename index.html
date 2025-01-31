@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zain&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="icon.svg">
+    <title>Arknights Damage Calculator</title>
+</head>
+
+<body>
+    <div class="form">
+        <h1 class="form-title"> Arknights Damage Calculator</h1>
+        <label for="dType">Damage Type :</label>
+        <select id="dType">
+            <option value="physical">Physical</option>
+            <option value="arts">Arts</option>
+            <option value="elemental">Elemental</option>
+            <option value="true">True / Pure</option>
+        </select>
+
+        <label for="atk">Attack :</label>
+        <input type="number" id="atk" value="0">
+
+        <label for="hits">Hits :</label>
+        <input type="number" id="hits" value="1" min="1">
+
+        <label for="aspd">Attack Interval :</label>
+        <input type="number" id="aspd" value="1" min="0">
+
+        <label for="fDebuff">Flat Debuff :</label>
+        <input type="number" id="fDebuff" value="0" min="0">
+
+        <label for="fIgnore">Flat Ignore :</label>
+        <input type="number" id="fIgnore" value="0" min="0">
+
+        <label for="pDebuff">Percentage Debuff % :</label>
+        <input type="number" id="pDebuff1" value="0" min="0">
+        <input type="number" id="pDebuff2" value="0" min="0">
+        <input type="number" id="pDebuff3" value="0" min="0">
+
+        <label for="pIgnore">Percentage Ignore % :</label>
+        <input type="number" id="pIgnore" value="0" min="0">
+
+        <label for="mlt1">Damage Multiplier :</label>
+        <input type="number" id="mlt1" value="1" min="1">
+        <input type="number" id="mlt2" value="1" min="1">
+        <input type="number" id="mlt3" value="1" min="1">
+
+        <label for="amp1">Percentage Damage Amplification % :</label>
+        <input type="number" id="amp1" value="0" min="0">
+        <input type="number" id="amp2" value="0" min="0">
+        <input type="number" id="amp3" value="0" min="0">
+
+        <button onclick="submit();">Submit</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="damageChart"></canvas>
+    </div>
+
+    <script src="dmg-calculator.js"></script>
+</body>
+
+</html>
