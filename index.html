@@ -9,13 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zain&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg" href="icon.svg">
+    <link rel="icon" type="image/svg" href="images/icon.svg">
     <title>Arknights Damage Calculator</title>
 </head>
 
 <body>
     <div class="form">
         <h1 class="form-title"> Arknights Damage Calculator</h1>
+        
+        <button class="info-btn" onclick="toggleModal()">
+            <img class="info-icon" src="images/info-icon.svg" alt="" srcset=""> Guide
+        </button>
+
         <label for="dType">Damage Type :</label>
         <select id="dType">
             <option value="physical">Physical</option>
@@ -64,6 +69,28 @@
         <canvas id="damageChart"></canvas>
     </div>
 
+    <div class="modal">
+        <div class="modal-top">
+            <button class="close-btn" onclick="toggleModal()">
+                <img class="close-icon" src="images/close-icon.svg" alt="close">
+            </button>
+            <h2 class="modal-title">How to use ?</h2>
+        </div>
+        <p><b>Attack :</b> Enter the operator's maximum attack value after applying skills and buffs.</p>
+        <p><b>Hits :</b> The number of damage instances per attack.</p>
+        <p><b>Attack Interval :</b> The time between each attack in seconds. This is used for calculating DPS and can be left empty.</p>
+        <p><b>Flat Debuff & Ignore :</b> Reduce enemy stats by a fixed amount. For example, Ifrit's S3 applies a 20 RES debuff, and Surtr's talent ignores 20 RES.</p>
+        <p><b>percentage Debuff & Ignore :</b> Reduce enemy stats by a percentage. For example, Schwarz's talent applies a 25% DEF debuff, and Nearl the Radiant Knight's talent ignores 28% DEF.</p>
+        <p><b>Damage Multiplier :</b> Multiplies the operator's current attack when dealing damage. For example, Pallas's S1 deals 175% of her attack, meaning it has a 1.75 multiplier, and her trait deals 120%, adding another 1.2 multiplier.</p>
+        <p><b>Percentage Damage Amplification :</b> Increases the damage an enemy takes by a percentage. For example, effects like Fragile or Saria's S3 apply a 55% Arts damage amplifier.</p>
+    </div>
+
+    <script>
+        const modal = document.querySelector('.modal');
+        function toggleModal(){
+            modal.classList.toggle("show-modal");
+        }
+    </script>
     <script src="dmg-calculator.js"></script>
 </body>
 
